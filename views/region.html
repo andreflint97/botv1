@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Check Me Out</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<script src="https://cdn.ravenjs.com/3.24.0/raven.min.js" crossorigin="anonymous"></script>
+</head>
+<body style="display: none;">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="header">
+					<div class="logo" href="settings.html">
+						<i class="material-icons">arrow_back</i>
+						<span class="logo-1">Check</span><span class="logo-2">Me</span><span class="logo-3">Out</span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col">
+						<h4>Region</h4>
+						<hr>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-2">
+						<div class="card-container">
+							<div class="settings-card location" id="set-eu">
+								<i class="material-icons">location_searching</i>
+								<h4>Europe</h4>
+							</div>
+							<div class="settings-card location" id="set-us">
+								<i class="material-icons">location_searching</i>
+								<h4>United States</h4>
+							</div>
+							<div class="settings-card location" id="set-jp">
+								<i class="material-icons">location_searching</i>
+								<h4>Japan</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-10">
+						<div style="width: 95%; float: right;">
+							<img src="images/map.svg" class="svg">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	window.$ = window.jQuery = require('./js/jquery.min.js');
+	require('./js/common.js');
+	require('./js/region.js');
+
+	var inlineSVG = require('inline-svg');
+
+	inlineSVG.init({
+		svgSelector: 'img.svg', 
+		initClass: 'js-inlinesvg',
+	}, function () {
+		console.log('All SVGs inlined');
+	});
+</script>
+</html>

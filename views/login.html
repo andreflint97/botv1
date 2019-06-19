@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Check Me Out</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+
+	<script src="https://cdn.ravenjs.com/3.24.0/raven.min.js" crossorigin="anonymous"></script>
+</head>
+<body style="display: none; overflow-y: hidden;">
+	<div class="login-container">
+		<div class="logo animated slideInDown">
+			<span class="logo-1">Check</span><span class="logo-2">Me</span><span class="logo-3">Out</span>
+			<p class="tagline">desktop Supreme bot</p>
+		</div>
+		<form class="animated slideInUp">
+			<label for="input-email">Email</label>
+			<input type="email" class="form-control" id="input-email">
+
+			<label for="input-password">Password</label>
+			<input type="password" class="form-control" id="input-password" style="margin-bottom: 5px;">
+			<small><a href="https://checkmeout.pro/desktop/account/reset" target="_blank" style="color: #999">Forgotten password</a></small>
+
+			<button type="button" class="btn w-100" id="login-btn">Log in</button>
+		</form>
+	</div>
+</body>
+<script>
+	window.$ = require('./js/jquery.min.js');
+	var common = require('./js/common.js');
+	require('./js/login.js');
+	var shell = require('electron').shell;
+
+	$(document).on('click', 'a[href^="http"]', function(event) {
+		event.preventDefault();
+		shell.openExternal(this.href);
+	});
+
+	$('#input-email, #input-password').on('keypress', function(e) {
+		if (e.keyCode == 13) {
+			$('#login-btn').click();
+		}
+	});
+</script>
+</html>
